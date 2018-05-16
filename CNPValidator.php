@@ -4,21 +4,21 @@
  *
  * Validate Romanian CNP
  *
- * @package    NETopes\Lib
+ * @package    NETopes\Libraries\Helpers
  * @author     George Benjamin-Schonberger
  * @copyright  Copyright (c) 2013 - 2017 Hinter Universal SRL
  * @license    LICENSE.md
- * @version    2.1.0.0
+ * @version    2.2.0.0
  * @filesource
  */
+	namespace NETopes\Libraries\Helpers;
 	/**
 	 * CNPValidator class
 	 *
 	 * Validate Romanian CNP
 	 *
-	 * @package  NETopes\Controls
+	 * @package  NETopes\Libraries\Helpers
 	 * @access   public
-	 * @abstract
 	 */
 	class CNPValidator {
 		/**
@@ -141,7 +141,6 @@
 		 *
 		 * @return void
 		 * @access public
-		 * @static
 		 */
 		public function __construct($input,$checksum = TRUE) {
 			$this->input = $input;

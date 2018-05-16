@@ -2,6 +2,7 @@
     "name": "netopes/helpers-cnp-validator",
     "description": "Romanian personal identificator number (CNP) validation class",
     "type": "library",
+    "version": "1.0.0",
     "require": {
         "php": "^5.6"
     },

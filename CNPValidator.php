@@ -6,9 +6,9 @@
  *
  * @package    NETopes\Libraries\Helpers
  * @author     George Benjamin-Schonberger
- * @copyright  Copyright (c) 2013 - 2017 Hinter Universal SRL
+ * @copyright  Copyright (c) 2013 - 2018 AdeoTEK Software (Style Mag Universal SRL)
  * @license    LICENSE.md
- * @version    2.2.0.0
+ * @version    1.0.0
  * @filesource
  */
 	namespace NETopes\Libraries\Helpers;

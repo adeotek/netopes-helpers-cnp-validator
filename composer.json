@@ -1,0 +1,16 @@
+{
+    "name": "netopes/helpers-cnp-validator",
+    "description": "Romanian personal identificator number (CNP) validation class",
+    "type": "library",
+    "require": {
+        "php": "^5.6"
+    },
+    "license": "Commercial License",
+    "authors": [
+        {
+            "name": "George Benjamin-Schonberger",
+            "email": "george.benjamin@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

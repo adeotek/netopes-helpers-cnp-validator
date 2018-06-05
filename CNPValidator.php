@@ -212,80 +212,80 @@
 		 * @return bool Returns validation result
 		 * @access public
 		 */
-		protected function IsValid() {
+		public function IsValid() {
 			return ($this->errors===FALSE);
-		}//END protected function IsValid
+		}//END public function IsValid
 		/**
 		 * Get errors
 		 *
 		 * @return string Returns errors array
 		 * @access public
 		 */
-		protected function GetErrors() {
+		public function GetErrors() {
 			if(!is_array($this->errors)) { return []; }
 			return $this->errors;
-		}//END protected function GetErrors
+		}//END public function GetErrors
 		/**
 		 * Get gender
 		 *
 		 * @return string Returns gender (1=male; 2=female)
 		 * @access public
 		 */
-		protected function GetGender($original = false) {
+		public function GetGender($original = false) {
 			if($this->errors!==FALSE) { return NULL; }
 			if($original) { return $this->gender; }
 			return (($this->gender % 2)==1 ? 1 : 2);
-		}//END protected function GetGender
+		}//END public function GetGender
 		/**
 		 * Get birthday
 		 *
 		 * @return string Returns birthday in universal format (yyyy-mm-dd)
 		 * @access public
 		 */
-		protected function GetBirthday() {
+		public function GetBirthday() {
 			if($this->errors!==FALSE) { return NULL; }
 			return ($this->year.'-'.$this->month.'-'.$this->day);
-		}//END protected function GetBirthday
+		}//END public function GetBirthday
 		/**
 		 * Get birthday year
 		 *
 		 * @return integer Returns birthday year
 		 * @access public
 		 */
-		protected function GetBirthdayYear() {
+		public function GetBirthdayYear() {
 			if($this->errors!==FALSE) { return NULL; }
 			return $this->year;
-		}//END protected function GetBirthdayYear
+		}//END public function GetBirthdayYear
 		/**
 		 * Get birthday month
 		 *
 		 * @return integer Returns birthday month
 		 * @access public
 		 */
-		protected function GetBirthdayMonth() {
+		public function GetBirthdayMonth() {
 			if($this->errors!==FALSE) { return NULL; }
 			return $this->month;
-		}//END protected function GetBirthdayMonth
+		}//END public function GetBirthdayMonth
 		/**
 		 * Get birthday day
 		 *
 		 * @return integer Returns birthday day
 		 * @access public
 		 */
-		protected function GetBirthdayDay() {
+		public function GetBirthdayDay() {
 			if($this->errors!==FALSE) { return NULL; }
 			return $this->day;
-		}//END protected function GetBirthdayDay
+		}//END public function GetBirthdayDay
 		/**
 		 * Get region
 		 *
 		 * @return integer|string Returns region
 		 * @access public
 		 */
-		protected function GetRegion($code = FALSE) {
+		public function GetRegion($code = FALSE) {
 			if($this->errors!==FALSE) { return NULL; }
 			return ($code ? $this->region : $this->regions[$this->region]);
-		}//END protected function GetRegion
+		}//END public function GetRegion
 		/**
 		 * Person has residence in Romania
 		 *

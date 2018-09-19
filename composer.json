@@ -1,22 +1,21 @@
 {
     "name": "netopes/helpers-cnp-validator",
-    "description": "Romanian personal identificator number (CNP) validation class",
+    "description": "Romanian personal identificator number (CNP) validation plugin",
     "type": "library",
-    "version": "1.0.1",
-    "require": {
-        "php": ">=5.6"
-    },
-    "license": "Commercial License",
-    "authors": [
+    "license": "MIT License",
+	"authors": [
         {
             "name": "George Benjamin-Schonberger",
             "email": "george.benjamin@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+	"minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6"
+    },
     "autoload": {
         "psr-4": {
-            "NETopes\\Libraries\\Helpers\\": ""
+            "NETopes\\Plugins\\Helpers\\": ""
         }
     }
 }

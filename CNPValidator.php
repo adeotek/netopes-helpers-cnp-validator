@@ -8,7 +8,7 @@
  * @author     George Benjamin-Schonberger
  * @copyright  Copyright (c) 2013 - 2018 AdeoTEK Software (Style Mag Universal SRL)
  * @license    LICENSE.md
- * @version    1.0.0
+ * @version    1.0.4
  * @filesource
  */
 namespace NETopes\Plugins\Helpers;
@@ -143,7 +143,7 @@ class CNPValidator {
 	 * @access public
 	 */
 	public function __construct($input,$checksum = TRUE) {
-		$this->input = $input;
+		$this->input = (string)$input;
 		$this->_validate($checksum);
 	}//END public function __construct
 	/**
@@ -202,7 +202,8 @@ class CNPValidator {
 				+ $this->input{9}*2
 				+ $this->input{10}*7
 				+ $this->input{11}*9;
-			if($this->control!=fmod(fmod($this->checksum,11),10)) { $errors[] = 'invalid_checksum'; }
+			$computedControl = ($this->checksum % 11)==10 ? 1 : ($this->checksum % 11);
+			if($this->control!=$computedControl) { $errors[] = 'invalid_checksum'; }
 		}//if($checksum)
 		$this->errors = (count($errors) ? $errors : FALSE);
 	}//END protected function _validate

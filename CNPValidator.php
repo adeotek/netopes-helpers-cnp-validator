@@ -6,9 +6,9 @@
  *
  * @package    NETopes\Plugins\Helpers
  * @author     George Benjamin-Schonberger
- * @copyright  Copyright (c) 2013 - 2018 AdeoTEK Software (Style Mag Universal SRL)
+ * @copyright  Copyright (c) 2013 - 2019 AdeoTEK Software SRL
  * @license    LICENSE.md
- * @version    1.0.4
+ * @version    1.0.5
  * @filesource
  */
 namespace NETopes\Plugins\Helpers;
@@ -124,24 +124,28 @@ class CNPValidator {
 		51 => "Calarasi",
 		52 => "Giurgiu"
 	);
-	/**
-	 * Validate input CNP
-	 *
-	 * @return bool Returns validation status
-	 * @access public
-	 * @static
-	 */
+    /**
+     * Validate input CNP
+     *
+     * @param       $input
+     * @param array $errors
+     * @param bool  $checksum
+     * @return bool Returns validation status
+     * @access public
+     * @static
+     */
 	public static function Validate($input,&$errors = [],$checksum = FALSE) {
 		$instance = new CNPValidator($input,$checksum);
 		$errors = $instance->GetErrors();
 		return $instance->IsValid();
 	}//END public static function Validate
-	/**
-	 * Class constructor
-	 *
-	 * @return void
-	 * @access public
-	 */
+    /**
+     * Class constructor
+     *
+     * @param      $input
+     * @param bool $checksum
+     * @access public
+     */
 	public function __construct($input,$checksum = TRUE) {
 		$this->input = (string)$input;
 		$this->_validate($checksum);
@@ -149,6 +153,7 @@ class CNPValidator {
 	/**
 	 * Validate input
 	 *
+     * @param bool $checksum
 	 * @return void
 	 * @access protected
 	 */
@@ -229,6 +234,7 @@ class CNPValidator {
 	/**
 	 * Get gender
 	 *
+     * @param bool $original
 	 * @return string Returns gender (1=male; 2=female)
 	 * @access public
 	 */
@@ -280,6 +286,7 @@ class CNPValidator {
 	/**
 	 * Get region
 	 *
+     * @param bool $code
 	 * @return integer|string Returns region
 	 * @access public
 	 */
@@ -303,7 +310,6 @@ class CNPValidator {
 	 * @access public
 	 */
 	public function IsForeigner() {
-		return (in_array($this->genre,[7,8,9]) ? TRUE : FALSE);
+		return (in_array($this->gender,[7,8,9]) ? TRUE : FALSE);
 	}//END public function IsForeigner
 }//END class CNPValidator
-?>

@@ -1,9 +1,7 @@
 <?php
 /**
  * CNPValidator class file
- *
  * Validate Romanian CNP
- *
  * @package    NETopes\Plugins\Helpers
  * @author     George Benjamin-Schonberger
  * @copyright  Copyright (c) 2013 - 2019 AdeoTEK Software SRL
@@ -14,66 +12,52 @@
 namespace NETopes\Plugins\Helpers;
 /**
  * CNPValidator class
- *
  * Validate Romanian CNP
- *
  * @package  NETopes\Plugins\Helpers
- * @access   public
  */
 class CNPValidator {
 	/**
 	 * @var    integer Gender
-	 * @access protected
 	 */
 	protected $gender = NULL;
 	/**
 	 * @var    integer Year
-	 * @access protected
 	 */
 	protected $year = NULL;
 	/**
 	 * @var    integer Month
-	 * @access protected
 	 */
 	protected $month = NULL;
 	/**
 	 * @var    integer Day
-	 * @access protected
 	 */
 	protected $day = NULL;
 	/**
 	 * @var    integer Region
-	 * @access protected
 	 */
 	protected $region = NULL;
 	/**
 	 * @var    integer Index
-	 * @access protected
 	 */
 	protected $index = NULL;
 	/**
 	 * @var    integer Control digit
-	 * @access protected
 	 */
 	protected $control = NULL;
 	/**
 	 * @var    integer Control sum
-	 * @access protected
 	 */
 	protected $checksum = NULL;
 	/**
 	 * @var string
-	 * @access protected
 	 */
 	protected $input;
 	/**
 	 * @var    mixed Errors
-	 * @access protected
 	 */
 	protected $errors = NULL;
 	/**
 	 * @var array
-	 * @access protected
 	 */
 	protected $regions = array(
 		1 => "Alba",
@@ -126,13 +110,10 @@ class CNPValidator {
 	);
     /**
      * Validate input CNP
-     *
      * @param       $input
      * @param array $errors
      * @param bool  $checksum
      * @return bool Returns validation status
-     * @access public
-     * @static
      */
 	public static function Validate($input,&$errors = [],$checksum = FALSE) {
 		$instance = new CNPValidator($input,$checksum);
@@ -141,10 +122,8 @@ class CNPValidator {
 	}//END public static function Validate
     /**
      * Class constructor
-     *
      * @param      $input
      * @param bool $checksum
-     * @access public
      */
 	public function __construct($input,$checksum = TRUE) {
 		$this->input = (string)$input;
@@ -152,10 +131,8 @@ class CNPValidator {
 	}//END public function __construct
 	/**
 	 * Validate input
-	 *
      * @param bool $checksum
 	 * @return void
-	 * @access protected
 	 */
 	protected function _validate($checksum = TRUE) {
 		$errors = [];
@@ -214,18 +191,14 @@ class CNPValidator {
 	}//END protected function _validate
 	/**
 	 * Get validation result
-	 *
 	 * @return bool Returns validation result
-	 * @access public
 	 */
 	public function IsValid() {
 		return ($this->errors===FALSE);
 	}//END public function IsValid
 	/**
 	 * Get errors
-	 *
-	 * @return string Returns errors array
-	 * @access public
+	 * @return array Returns errors array
 	 */
 	public function GetErrors() {
 		if(!is_array($this->errors)) { return []; }
@@ -233,10 +206,8 @@ class CNPValidator {
 	}//END public function GetErrors
 	/**
 	 * Get gender
-	 *
      * @param bool $original
 	 * @return string Returns gender (1=male; 2=female)
-	 * @access public
 	 */
 	public function GetGender($original = false) {
 		if($this->errors!==FALSE) { return NULL; }
@@ -245,9 +216,7 @@ class CNPValidator {
 	}//END public function GetGender
 	/**
 	 * Get birthday
-	 *
 	 * @return string Returns birthday in universal format (yyyy-mm-dd)
-	 * @access public
 	 */
 	public function GetBirthday() {
 		if($this->errors!==FALSE) { return NULL; }
@@ -255,9 +224,7 @@ class CNPValidator {
 	}//END public function GetBirthday
 	/**
 	 * Get birthday year
-	 *
 	 * @return integer Returns birthday year
-	 * @access public
 	 */
 	public function GetBirthdayYear() {
 		if($this->errors!==FALSE) { return NULL; }
@@ -265,9 +232,7 @@ class CNPValidator {
 	}//END public function GetBirthdayYear
 	/**
 	 * Get birthday month
-	 *
 	 * @return integer Returns birthday month
-	 * @access public
 	 */
 	public function GetBirthdayMonth() {
 		if($this->errors!==FALSE) { return NULL; }
@@ -275,9 +240,7 @@ class CNPValidator {
 	}//END public function GetBirthdayMonth
 	/**
 	 * Get birthday day
-	 *
 	 * @return integer Returns birthday day
-	 * @access public
 	 */
 	public function GetBirthdayDay() {
 		if($this->errors!==FALSE) { return NULL; }
@@ -285,10 +248,8 @@ class CNPValidator {
 	}//END public function GetBirthdayDay
 	/**
 	 * Get region
-	 *
      * @param bool $code
 	 * @return integer|string Returns region
-	 * @access public
 	 */
 	public function GetRegion($code = FALSE) {
 		if($this->errors!==FALSE) { return NULL; }
@@ -296,18 +257,14 @@ class CNPValidator {
 	}//END public function GetRegion
 	/**
 	 * Person has residence in Romania
-	 *
 	 * @return bool Returns residence state
-	 * @access public
 	 */
 	public function IsResident() {
 		return (in_array($this->gender,[7,8]) ? FALSE : TRUE);
 	}//END public function IsResident
 	/**
 	 * Person is not of Romanian nationality
-	 *
 	 * @return bool Returns foreigner state
-	 * @access public
 	 */
 	public function IsForeigner() {
 		return (in_array($this->gender,[7,8,9]) ? TRUE : FALSE);

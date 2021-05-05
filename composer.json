@@ -1,17 +1,17 @@
 {
     "name": "netopes/helpers-cnp-validator",
-    "description": "Romanian personal identificator number (CNP) validation plugin",
+    "description": "Romanian personal identification number (CNP) validation plugin",
     "type": "library",
-    "license": "MIT License",
-	"authors": [
+    "license": "MIT",
+    "authors": [
         {
             "name": "George Benjamin-Schonberger",
             "email": "george.benjamin@gmail.com"
         }
     ],
-	"minimum-stability": "stable",
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=5.6"
+        "php": "^7.2 || ^8.0"
     },
     "autoload": {
         "psr-4": {

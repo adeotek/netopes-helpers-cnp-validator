@@ -239,9 +239,9 @@ class CNPValidator {
      * Get gender
      *
      * @param bool $original
-     * @return int|string|null Returns gender (1=male; 2=female)
+     * @return mixed Returns gender (1=male; 2=female)
      */
-    public function GetGender(bool $original=FALSE): int|string|null {
+    public function GetGender(bool $original=FALSE) {
         if($this->errors!==FALSE) {
             return NULL;
         }
@@ -303,9 +303,9 @@ class CNPValidator {
      * Get region
      *
      * @param bool $code
-     * @return int|string|null Returns region
+     * @return mixed Returns region
      */
-    public function GetRegion(bool $code=FALSE): int|string|null {
+    public function GetRegion(bool $code=FALSE) {
         if($this->errors!==FALSE) {
             return NULL;
         }

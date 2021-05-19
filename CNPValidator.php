@@ -194,7 +194,7 @@ class CNPValidator {
             // iar rezultatul final este impartit cu rest la 11. Daca restul este 10,
             // atunci cifra de control este 1, altfel cifra de control este egala cu restul.
             $this->control=substr($this->input,12,1);
-            $this->checksum=$this->input{0} * 2
+            $this->checksum=$this->input[0] * 2
                 + $this->input[1] * 7
                 + $this->input[2] * 9
                 + $this->input[3] * 1

@@ -303,9 +303,9 @@ class CNPValidator {
      * Get region
      *
      * @param bool $code
-     * @return int|string|null Returns region
+     * @return mixed Returns region
      */
-    public function GetRegion(bool $code=FALSE): int|string|null {
+    public function GetRegion(bool $code=FALSE) {
         if($this->errors!==FALSE) {
             return NULL;
         }
